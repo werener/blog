@@ -1,4 +1,4 @@
-import { Elysia } from "elysia";
+import { Elysia, t } from "elysia";
 import { swagger } from "@elysiajs/swagger";
 
 const tempDB = {
@@ -28,7 +28,6 @@ const tempDB = {
         {
             carousel: ["https://i.imgur.com/q6hF7OO.jpeg", "https://i.imgur.com/q6hF7OO.jpeg", "https://i.imgur.com/q6hF7OO.jpeg"],
             name: "more sluts",
-            link: "https://msun.itch.io/okayga",
             description: "kill yourself",
         },
     ]
@@ -37,8 +36,31 @@ const tempDB = {
 const app = new Elysia()
     .use(swagger())
     .get("/", () => "Hello Elysia")
-    .get("/gallery", tempDB.gallery)
-    .get("/projects", tempDB.projects)
+    .get("/gallery",
+         tempDB.gallery,
+         {
+            response: t.Array(
+                t.Object({
+                    img: t.String(),
+                    name: t.String(),
+                    description: t.String()
+                })
+            )
+         }
+        )
+    .get("/projects",
+         tempDB.projects,
+         {
+            response: t.Array(
+                t.Object({
+                    carousel: t.Array(t.String()),
+                    name: t.String(),
+                    link: t.Optional(t.String()),
+                    description: t.String()
+                })
+            )
+         }
+        )
     .listen(3000);
 
 console.log(
