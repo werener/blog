@@ -34,7 +34,10 @@ const tempDB = {
 
 export const api = new Elysia({ prefix: "/api" })
     .get("/gallery",
-         tempDB.gallery,
+         ({ set }) => {
+            set.headers = {"Access-Control-Allow-Origin": "*"}
+            return tempDB.gallery
+         },
          {
             response: t.Array(
                 t.Object({
