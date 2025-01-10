@@ -3,8 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import ProjectDisplay from "./components/gallery/component/ProjectDisplay";
 
-const response = await fetch("127.0.0.1:3000/projects").then((r) => r.json());
-const Arr = JSON.parse(response);
+const Arr = await fetch("http://localhost:3000/api/gallery", ).then(r => r.json());
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
