@@ -7,6 +7,6 @@ const Arr = await fetch("http://localhost:3000/api/gallery", ).then(r => r.json(
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<ProjectDisplay AllProjects={response} />
+		<ProjectDisplay AllProjects={Arr} />
 	</StrictMode>
 );
