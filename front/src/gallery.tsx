@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import ProjectDisplay from "./components/gallery/component/ProjectDisplay.tsx";
+import ProjectDisplay from "./components/gallery/component/ProjectDisplay";
 
 let Arr = [
 	{ img: "sjdfgasdf", name: "penis", description: "penis2D" },
