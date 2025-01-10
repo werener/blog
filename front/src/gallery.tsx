@@ -1,15 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import ProjectDisplay from "./components/gallery/component/ProjectDisplay.tsx";
+import ProjectDisplay from "./components/gallery/component/ProjectDisplay";
 
-let Arr = [
-	{ img: "sjdfgasdf", name: "penis", description: "penis2D" },
-	{ img: "asgdfasd", name: "zalupa_slonika", description: "zalupa" },
-];
+const response = await fetch("http://localhost:3000/api/gallery").then((r) =>
+	r.json()
+);
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<ProjectDisplay AllProjects={Arr} />
+		<ProjectDisplay AllProjects={response} />
 	</StrictMode>
 );
