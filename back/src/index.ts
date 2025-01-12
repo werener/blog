@@ -1,7 +1,10 @@
 import { Elysia, t } from "elysia";
 import { swagger } from "@elysiajs/swagger";
 import { api } from "./api"
+import "dotenv/config"
+import { drizzle } from 'drizzle-orm/bun-sqlite';
 
+const db = drizzle(process.env.DB_FILE_NAME!);
 
 const app = new Elysia()
     .use(swagger())
