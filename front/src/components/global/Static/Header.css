@@ -61,3 +61,10 @@ h2 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.navigation-button {
+    margin-top: 67px;
+}
+.navigation-button-styling {
+    width: 50px;
+}

@@ -1,11 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import Header from "./components/home/component/Header.tsx";
-import Slider from "./components/home/component/Slider.tsx";
+import Header from "./components/global/component/Header.tsx";
+
+// <Slider />
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
-		<Header />
-		<Slider />
+		<Header launchedAt="main" />
 	</StrictMode>
 );
