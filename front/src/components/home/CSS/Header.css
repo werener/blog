@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 .header {
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(105, 105, 105);
     padding: 0;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -16,10 +16,26 @@ body {
     display: inline-block;
     width: 40%;
 }
+.logo-photo {
+    border-radius: 30px;
+   
+}   
+.discord {
+    background-color: gray;
+    display: inline-block;
+}
+.telegram {
+    background-color: aqua;
+    display: inline-block;
+}
+.youtube {
+    background-color: blue;
+    display: inline-block;
+}
 .icons {
     background-color: white;
     display: inline-block;
-    width: 40%;
+    width: 150px;
     text-align: center;
     justify-content: center;
 }
