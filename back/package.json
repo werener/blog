@@ -14,5 +14,8 @@
   "devDependencies": {
     "bun-types": "latest"
   },
+  "overrides": {
+        "@sinclair/typebox": "^0.32.15"
+  },
   "module": "src/index.js"
 }
