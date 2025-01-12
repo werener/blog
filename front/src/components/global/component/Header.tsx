@@ -16,10 +16,6 @@ export default function Header({ launchedAt }: Props) {
 			<div className="navigation-button">
 				<PageNavigationButton type={typeOfButton} onClickFunction={() => {}} />
 			</div>
-			<style>
-				{`.navigation-button { float: ${typeOfButton}; 
-				margin-${typeOfButton}: 12px}`}
-			</style>
 			<div className="logo">
 				<h2>
 					<img className="logo-photo" src={blog_logo} width="50px" />
@@ -52,6 +48,18 @@ export default function Header({ launchedAt }: Props) {
 					/>
 				</div>
 			</div>
+
+			<style>
+				{`.navigation-button { float: ${typeOfButton}; 
+				margin-${typeOfButton}: 12px}`}
+			</style>
+
+			<style>
+				{`.logo { margin-left: ${typeOfButton === "left" ? "15px" : "50px"}; }`}
+				{`.icons { margin-right: ${
+					typeOfButton === "left" ? "50px" : "5px"
+				}; }`}
+			</style>
 		</div>
 	);
 }
