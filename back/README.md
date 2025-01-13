@@ -37,3 +37,8 @@ Directly apply changes:
 ```bash
 npx drizzle-kit push
 ```
+
+Populate db with test data: (in /back directory)
+```bash 
+bun run ./dev/populate.ts
+```
