@@ -8,7 +8,7 @@ const db = drizzle(process.env.DB_FILE_NAME!);
 
 const app = new Elysia()
     .use(swagger())
-    .get("/", () => "Hello Elysia\nlocalhost:3000/swagger")
+    .get("/", () => "Hello Elysia\nAPI docs at http://localhost:3000/swagger")
     .use(api)
     .listen(3000);
 

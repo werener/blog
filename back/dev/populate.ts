@@ -48,11 +48,11 @@ async function populate() {
         await db.insert(galleryTable).values(galleryItem);
     }
     console.log('Populated gallery table');
-    console.log(db.select().from(galleryTable));
+    console.log(await db.select().from(galleryTable));
     
     const projectsItems = testData.projects.map((item) => {
         return { 
-            imagePath: item.carousel[0], // didnt create an array of image paths for projects schema yet
+            mediaPaths: item.carousel,
             name: item.name,
             link: item.link,
             description: item.description
@@ -62,7 +62,7 @@ async function populate() {
         await db.insert(projectsTable).values(projectItem);
     }
     console.log('Populated projects table');
-    console.log(db.select().from(projectsTable));
+    console.log(await db.select().from(projectsTable));
 }
 
 populate();
