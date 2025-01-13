@@ -1,6 +1,44 @@
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color:rgb(22, 22, 22);
+    background-color:rgb(45, 44, 44);
     padding: 0;
     margin: 0;
+}
+
+
+.btn-slide {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(53, 57, 56);
+    border: none;
+    user-select: none;
+}
+.btn-slide.prev {
+    float:left;
+}
+.btn-slide.next {
+    float:right;
+}
+.btn-slider {
+    width: 50px;
+}
+
+.slider-pictures{
+    width:200px;
+    height:100px;
+    user-select: none;
+}
+.slide {
+    display: none;
+}
+.slide.active-anim {
+    display: block !important;
+    text-align:center;
+    background-color: rgb(53, 57, 56)
+}
+
+.container-slider{
+    width:400px;
+    height: 155px;
+    background-color: rgb(53, 57, 56);
 }
