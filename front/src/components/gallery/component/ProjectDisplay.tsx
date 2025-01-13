@@ -2,7 +2,7 @@ interface Props {
 	AllProjects: { name: string; img: string; description: string }[];
 }
 
-function ProjectDisplay({ AllProjects }: Props) {
+export default function ProjectDisplay({ AllProjects }: Props) {
 	return (
 		<ul>
 			{AllProjects.map((item) => (
@@ -11,5 +11,3 @@ function ProjectDisplay({ AllProjects }: Props) {
 		</ul>
 	);
 }
-
-export default ProjectDisplay;
