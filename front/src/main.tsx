@@ -8,6 +8,7 @@ const allSlides = [
 	{ id: 1, image: "../CSS/telegram.png", title: "telegram" },
 	{ id: 2, image: "../CSS/discord.png", title: "discord" },
 	{ id: 3, image: "../CSS/youtube.png", title: "youtube" },
+	{ id: 4, image: "../CSS/youtube.png", title: "anus" },
 ];
 
 // <Slider />
