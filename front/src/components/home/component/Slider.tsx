@@ -9,13 +9,18 @@ type slide_type =
 	| "slide background-visible right"
 	| "slide";
 
-type slide_position = "first" | "last" | "middle";
+type dot_type = 
+	| "dot active-anim" 
+	| "dot background-visible" 
+	| "dot";
 
 type picture_type =
 	| "picture active-anim"
 	| "picture background-visible left"
 	| "picture background-visible right"
 	| "picture";
+
+type slide_position = "first" | "last" | "middle";
 interface Props {
 	slides: Array<{ id: number; image: string; title: string }>;
 }
@@ -31,8 +36,8 @@ export default function Slider({ slides }: Props) {
 	const getSlideStatus = (index: number) => {
 		if (slideIndex === index) return "slide active-anim";
 		if (getSlidePosition() === "middle") {
-			if (slideIndex === index - 1) return "slide background-visible left";
-			if (slideIndex === index + 1) return "slide background-visible right";
+			if (slideIndex === index - 1) return "slide background-visible right";
+			if (slideIndex === index + 1) return "slide background-visible left";
 			return "slide";
 		}
 		if (getSlidePosition() === "first") {
@@ -49,8 +54,8 @@ export default function Slider({ slides }: Props) {
 	const getPictureStatus = (index: number) => {
 		if (slideIndex === index) return "picture active-anim";
 		if (getSlidePosition() === "middle") {
-			if (slideIndex === index - 1) return "picture background-visible left";
-			if (slideIndex === index + 1) return "picture background-visible right";
+			if (slideIndex === index - 1) return "picture background-visible right";
+			if (slideIndex === index + 1) return "picture background-visible left";
 			return "picture";
 		}
 		if (getSlidePosition() === "first") {
@@ -64,6 +69,24 @@ export default function Slider({ slides }: Props) {
 			return "picture";
 		}
 	};
+	const getDotStatus = (index: number) => {
+		if (slideIndex === index) return "dot active-anim";
+		if (getSlidePosition() === "middle") {
+			if (slideIndex === index - 1) return "dot background-visible";
+			if (slideIndex === index + 1) return "dot background-visible";
+			return "dot";
+		}
+		if (getSlidePosition() === "first") {
+			if (slideIndex === index - 1) return "dot background-visible";
+			if (index === slides.length) return "dot background-visible";
+			return "dot";
+		}
+		if (getSlidePosition() === "last") {
+			if (slideIndex === index + 1) return "dot background-visible";
+			if (index === 1) return "dot background-visible";
+			return "dot";
+		}
+	}
 
 	const nextSlide = () => {
 		if (slideIndex !== slides.length) {
@@ -85,24 +108,28 @@ export default function Slider({ slides }: Props) {
 
 	return (
 		<div className="container-slider">
-			{slides.map((obj, index) => {
-				return (
-					<div key={obj.id} className={getSlideStatus(index + 1)}>
-						<img
-							className={getPictureStatus(index + 1)}
-							src={"src/components/global" + `/Static/${index + 1}.jpg`}
-						/>
-					</div>
-				);
-			})}
-			<BtnSlider moveSlide={nextSlide} direction={"next"} />
-			<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+			<div className="slides-and-arrows">
+				<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+				<div className="shown-slides-only">
+					{slides.map((obj, index) => {
+						return (
+							<div key={obj.id} className={getSlideStatus(index + 1)}>
+								<img
+									className={getPictureStatus(index + 1)}
+									src={"src/components/global" + `/Static/${index + 1}.jpg`}
+								/>
+							</div>
+						);
+					})}
+				</div>
+				<BtnSlider moveSlide={nextSlide} direction={"next"} />
+			</div>
 			<div className="container-dots">
-				{Array.from({ length: 5 }).map((item, index) => (
-					<div
+				{Array.from({ length: slides.length }).map((item, index) => (
+					<button
 						onClick={() => moveDot(index + 1)}
-						className={slideIndex === index + 1 ? "dot active" : "dot"}
-					></div>
+						className={getDotStatus(index + 1)}
+					></button>
 				))}
 			</div>
 		</div>
