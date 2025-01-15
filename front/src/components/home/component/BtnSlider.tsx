@@ -15,7 +15,7 @@ export default function BtnSlider({ direction, moveSlide }: Props) {
 				className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
 			>
 				<img
-					className="btn-slide"
+					className="btn-slider"
 					src={direction === "next" ? rightArrow : leftArrow}
 				/>
 			</button>
