@@ -5,70 +5,81 @@ body {
     margin: 0;
 }
 
-.container-slider{
-    width: 600px;
-    height: 250px;
-    padding: 10px;
-    padding-top: 15px;
-    background-color: rgb(53, 57, 56);
-    display: inline-block;
-    justify-content: center;
-    
-}
-.slides-and-arrows {
-    display: inline-block;
-    width: 500px;
-    height: 200px;
-    padding: 0px;
-} 
-.shown-slides-only{
-    width: 400px;
+.container-slider {
+    background-color: rgb(142, 75, 75);
+    text-align: center;
+
 }
 
-.container-dots {
+.slides-and-arrows {
+    display: inline-block;
+    background-color: blue;
+    width: 600px;
     text-align: center;
-    padding-top: 12px;
+} 
+.shown-slides-only{
+    background-color: aqua;
+    display: inline-block;
+    width: 400px;
+    height: 350px;
+}
+.slide.active-anim {
+    display: inline-block;
+    height: 350px;
+    width: 350px;
+
+    background-color: rgb(53, 57, 56);
+
+}
+.picture.active-anim {
+    width: 200px;
+    height: 200px;
 }
 
 .btn-slide {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(53, 57, 56);
-    border: none;
-    margin: 0;
     user-select: none;
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+}
+.btn-slider { 
+    width: 25px;
+    height: 25px;
 }
 .btn-slide.prev {
-    width: 50px;
+    background-color: aquamarine;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
 }
 .btn-slide.next {
-    width: 50px;
+    background-color: aqua;
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
 }
-
-.picture{
+.picture {
     width: 200px;
-    height:100px;
     user-select: none;
 }
 .slide {
     display: none;
     width: 0px;
+    background-color: antiquewhite;
 }
-.slide.active-anim {
-    display: block !important;
-    width: 200px;
-    height: 100px;
-    margin: auto;
-    background-color: rgb(53, 57, 56)
-}
+.container-dots {
+    text-align: center;
+    background-color: beige;
 
+    height: 50px;
+}
 .dot {
+    margin-top: 15px;
+    margin-right: 10px;
     width: 20px;
     height: 20px;
-    
-    border: solid;
-    border-radius: 10px;
-    border-color: rgb(80, 83, 82);
+    border: none;
+    border-radius: 20px;
     background-color: rgb(80, 83, 82);
 }
 .dot.active-anim {
