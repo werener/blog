@@ -107,30 +107,32 @@ export default function Slider({ slides }: Props) {
 	};
 
 	return (
-		<div className="container-slider">
-			<div className="slides-and-arrows">
-				<BtnSlider moveSlide={prevSlide} direction={"prev"} />
-				<div className="shown-slides-only">
-					{slides.map((obj, index) => {
-						return (
-							<div key={obj.id} className={getSlideStatus(index + 1)}>
-								<img
-									className={getPictureStatus(index + 1)}
-									src={"src/components/global" + `/Static/${index + 1}.jpg`}
-								/>
-							</div>
-						);
-					})}
+		<div className="footer">
+			<div className="container-slider">
+				<div className="slides-and-arrows">
+					<BtnSlider moveSlide={prevSlide} direction={"prev"} />
+					<div className="shown-slides-only">
+						{slides.map((obj, index) => {
+							return (
+								<div key={obj.id} className={getSlideStatus(index + 1)}>
+									<img
+										className={getPictureStatus(index + 1)}
+										src={"src/components/global" + `/Static/${index + 1}.jpg`}
+									/>
+								</div>
+							);
+						})}
+					</div>
+					<BtnSlider moveSlide={nextSlide} direction={"next"} />
 				</div>
-				<BtnSlider moveSlide={nextSlide} direction={"next"} />
-			</div>
-			<div className="container-dots">
-				{Array.from({ length: slides.length }).map((item, index) => (
-					<button
-						onClick={() => moveDot(index + 1)}
-						className={getDotStatus(index + 1)}
-					></button>
-				))}
+				<div className="container-dots">
+					{Array.from({ length: slides.length }).map((item, index) => (
+						<button
+							onClick={() => moveDot(index + 1)}
+							className={getDotStatus(index + 1)}
+						></button>
+					))}
+				</div>
 			</div>
 		</div>
 	);
