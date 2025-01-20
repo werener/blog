@@ -9,7 +9,7 @@ interface Props {
 }
 export default function BtnSlider({ direction, moveSlide }: Props) {
 	return (
-		<div className="btn-slide">
+		<div className="btn-slide-div">
 			<button
 				onClick={moveSlide}
 				className={direction === "next" ? "btn-slide next" : "btn-slide prev"}
